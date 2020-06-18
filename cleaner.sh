@@ -1,6 +1,8 @@
 #!/bin/sh
+
 перенаправление вывода в файл
 #exec 1>log
+#Сколько последних версий тегов нужно оставлять
 NUM_DEEP=10
 REPOPATH=/data/registry/docker/registry/v2/repositories/
 TAG_COUNT=0
@@ -22,11 +24,11 @@ for hash in $(ls $TAGPATH -t | tail -n +$NUM_DEEP)
 do
 TAG_COUNT=$((TAG_COUNT+1))
   echo "удалены из tags"  $TAGPATH/$hash;
-#rm -rf $TAGPATH/$hash;
+rm -rf $TAGPATH/$hash;
   echo "удалены из revisions" $REVPATH/$hash;
-#rm -rf $REVPATH/$hash;
+rm -rf $REVPATH/$hash;
 done
 done
 done
 echo "Удалено $TAG_COUNT тегов"
-#sudo docker exec -it  registry bin/registry garbage-collect -m /etc/docker/registry/config.yml
+sudo docker exec -it  registry bin/registry garbage-collect -m /etc/docker/registry/config.yml
