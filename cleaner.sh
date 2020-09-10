@@ -29,13 +29,13 @@ for repo_path in $REPOPATH*; do
                         do
                         TAG_COUNT=$((TAG_COUNT+1))
                         echo "удалены из tags"  $TAGPATH/$hash;
-                        #sudo rm -rf $TAGPATH/$hash;
+                        #rm -rf $TAGPATH/$hash;
                         echo "удалены из revisions" $REVPATH/$hash;
-                        #sudo rm -rf $REVPATH/$hash;
+                        #rm -rf $REVPATH/$hash;
                 done
         done
 done
-#sudo docker exec -it  registry bin/registry garbage-collect -m /etc/docker/registry/config.yml
+#docker exec -it  registry bin/registry garbage-collect -m /etc/docker/registry/config.yml
 DU_AFTER=$(du -sh /data/registry)
 
 echo -e "\n\n################################################"
