@@ -18,7 +18,8 @@ for repo_path in $REPOPATH*; do
         VERSIONPATH=$REPOPATH$repo/_manifests/tags/
         # нахожу название всех версий; прим: latest.claim, latest.master и т.д.
         for version_path in $VERSIONPATH/*; do
-                version=$(basename $version_path)                                                                                                                                                                                  echo "version: $version"
+                version=$(basename $version_path)
+                echo "version: $version"
                 TAGPATH=$REPOPATH$repo/_manifests/tags/$version/index/sha256
                 REVPATH=$REPOPATH$repo/_manifests/revisions/sha256
                 #отсортировываю хеш по времени изменения. Новые вначале.
